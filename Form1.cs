@@ -17,34 +17,36 @@ namespace Censtar
             InitializeComponent();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void exitToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void portSettingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PortSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Код для открытия формы настроек порта
+            PortSettingsForm portSettingsForm = new PortSettingsForm();
+            portSettingsForm.ShowDialog();  // Открываем форму как диалоговое окно
         }
 
-        private void priceSettingToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void PriceSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Код для открытия формы настроек цены
         }
 
-        private void connectedToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConnectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Код для открытия выбранного порта
         }
 
-        private void disconnectedToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DisconnectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Код для закрытия выбранного порта
+        }
+
+        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
