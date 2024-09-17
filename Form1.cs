@@ -1,56 +1,116 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
+using System.IO.Ports;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Censtar
 {
     public partial class Form1 : Form
     {
+        private SerialPort _serialPort;
+
         public Form1()
         {
             InitializeComponent();
+            // Устанавливаем начальный текст для метки статуса
+            _statusLabel.Text = "Ожидание подключения";
         }
 
+        // Обработчик события клика на пункте меню "Exit"
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Обработчик события клика на пункте меню "Port setting"
         private void PortSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PortSettingsForm portSettingsForm = new PortSettingsForm();
-            portSettingsForm.ShowDialog();  // Открываем форму как диалоговое окно
+            portSettingsForm.ShowDialog();
         }
 
-
+        // Обработчик события клика на пункте меню "Price setting"
         private void PriceSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Создайте экземпляр формы
             PriceSettingsForm priceSettingsForm = new PriceSettingsForm();
-
-            // Отобразите форму
-            priceSettingsForm.Show(); // Используйте Show() для отображения формы, или ShowDialog() для модального окна
+            priceSettingsForm.Show();
         }
 
+        // Обработчик события клика на пункте меню "Connected"
         private void ConnectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Код для открытия выбранного порта
+            string iniFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.ini");
+
+            // Проверка существования файла конфигурации
+            if (!File.Exists(iniFilePath))
+            {
+                MessageBox.Show("Файл конфигурации не найден.");
+                return;
+            }
+
+            // Чтение параметров из конфигурационного файла
+            string comPort = IniFileHelper.ReadIni("PortSettings", "COMPort", iniFilePath);
+            string baudRate = IniFileHelper.ReadIni("PortSettings", "BaudRate", iniFilePath);
+            string dataBits = IniFileHelper.ReadIni("PortSettings", "DataBits", iniFilePath);
+            string parity = IniFileHelper.ReadIni("PortSettings", "Parity", iniFilePath);
+            string stopBits = IniFileHelper.ReadIni("PortSettings", "StopBits", iniFilePath);
+
+            // Проверка корректности параметров
+            if (string.IsNullOrWhiteSpace(comPort) ||
+                string.IsNullOrWhiteSpace(baudRate) ||
+                string.IsNullOrWhiteSpace(dataBits) ||
+                string.IsNullOrWhiteSpace(parity) ||
+                string.IsNullOrWhiteSpace(stopBits))
+            {
+                MessageBox.Show("Параметры конфигурации отсутствуют или неверны.");
+                return;
+            }
+
+            // Проверка существования указанного COM порта
+            if (!SerialPort.GetPortNames().Contains(comPort))
+            {
+                MessageBox.Show("Указанный COM порт не существует.");
+                return;
+            }
+
+            try
+            {
+                _serialPort = new SerialPort
+                {
+                    PortName = comPort,
+                    BaudRate = int.Parse(baudRate),
+                    DataBits = int.Parse(dataBits),
+                    Parity = (Parity)Enum.Parse(typeof(Parity), parity),
+                    StopBits = (StopBits)Enum.Parse(typeof(StopBits), stopBits)
+                };
+
+                _serialPort.Open();
+                _statusLabel.Text = "Подключено к " + comPort;
+                _statusLabel.ForeColor = System.Drawing.Color.Green;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка подключения: " + ex.Message);
+            }
         }
 
+        // Обработчик события клика на пункте меню "Disconnected"
         private void DisconnectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Код для закрытия выбранного порта
-        }
-
-        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            if (_serialPort != null && _serialPort.IsOpen)
+            {
+                try
+                {
+                    _serialPort.Close();
+                    _statusLabel.Text = "Отключено";
+                    _statusLabel.ForeColor = System.Drawing.Color.Red;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка отключения: " + ex.Message);
+                }
+            }
         }
     }
 }
