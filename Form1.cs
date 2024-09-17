@@ -31,7 +31,11 @@ namespace Censtar
 
         private void PriceSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Код для открытия формы настроек цены
+            // Создайте экземпляр формы
+            PriceSettingsForm priceSettingsForm = new PriceSettingsForm();
+
+            // Отобразите форму
+            priceSettingsForm.Show(); // Используйте Show() для отображения формы, или ShowDialog() для модального окна
         }
 
         private void ConnectedToolStripMenuItem_Click(object sender, EventArgs e)
