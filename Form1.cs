@@ -70,7 +70,7 @@ namespace Censtar
             // Проверка существования указанного COM порта
             if (!SerialPort.GetPortNames().Contains(comPort))
             {
-                MessageBox.Show("Указанный COM порт не существует.");
+                _statusLabel.Text = "Указанный COM порт не существует.";
                 return;
             }
 
@@ -86,8 +86,10 @@ namespace Censtar
                 };
 
                 _serialPort.Open();
+                this._statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
                 _statusLabel.Text = "Подключено к " + comPort;
-                _statusLabel.ForeColor = System.Drawing.Color.Green;
+                _statusLabel.ForeColor = System.Drawing.Color.White;
+                this.statusStrip1.BackColor = System.Drawing.Color.DarkGreen;
             }
             catch (Exception ex)
             {
@@ -104,7 +106,9 @@ namespace Censtar
                 {
                     _serialPort.Close();
                     _statusLabel.Text = "Отключено";
-                    _statusLabel.ForeColor = System.Drawing.Color.Red;
+                    this._statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+                    _statusLabel.ForeColor = System.Drawing.Color.White;
+                    this.statusStrip1.BackColor = System.Drawing.Color.DarkRed;
                 }
                 catch (Exception ex)
                 {
