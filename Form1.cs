@@ -28,6 +28,16 @@ namespace Censtar
             // Привязываем обработчики для кнопок
             BtnStart.Click += BtnStart_Click;
             BtnReset.Click += BtnReset_Click; // Обработчик для кнопки Reset
+
+            // Отображаем текущую цену
+            DisplayCurrentPrice();
+        }
+
+        // Метод для отображения текущей цены в Label
+        private void DisplayCurrentPrice()
+        {
+            decimal currentPrice = _orderManager.GetCurrentPrice();
+            LblCurPrice.Text = $"Current price: {currentPrice} руб.";
         }
 
         private void TbxLiter_TextChanged(object sender, EventArgs e)

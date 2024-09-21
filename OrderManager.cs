@@ -51,6 +51,11 @@ namespace Censtar
             _liters = null; // Очищаем поле для литров
         }
 
+        // Получение текущей цены
+        public decimal GetCurrentPrice()
+        {
+            return _priceDelimiter;
+        }
         public bool ValidateOrder()
         {
             return _liters.HasValue || _amount.HasValue;

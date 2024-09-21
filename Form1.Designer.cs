@@ -17,17 +17,18 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.OrderPanel = new System.Windows.Forms.Panel();
-            this.TbxLiter = new System.Windows.Forms.TextBox();
-            this.TbxAmount = new System.Windows.Forms.TextBox();
-            this.Liter = new System.Windows.Forms.Label();
-            this.Amount = new System.Windows.Forms.Label();
-            this.BtnStart = new System.Windows.Forms.Button();
-            this.BtnStop = new System.Windows.Forms.Button();
-            this.BtnReset = new System.Windows.Forms.Button();
-            this.StatLiters = new System.Windows.Forms.Label();
-            this.OrdLiters = new System.Windows.Forms.Label();
-            this.StatAmount = new System.Windows.Forms.Label();
+            this.LblCurPrice = new System.Windows.Forms.Label();
             this.OrdAmounts = new System.Windows.Forms.Label();
+            this.StatAmount = new System.Windows.Forms.Label();
+            this.OrdLiters = new System.Windows.Forms.Label();
+            this.StatLiters = new System.Windows.Forms.Label();
+            this.BtnReset = new System.Windows.Forms.Button();
+            this.BtnStop = new System.Windows.Forms.Button();
+            this.BtnStart = new System.Windows.Forms.Button();
+            this.Amount = new System.Windows.Forms.Label();
+            this.Liter = new System.Windows.Forms.Label();
+            this.TbxAmount = new System.Windows.Forms.TextBox();
+            this.TbxLiter = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.OrderPanel.SuspendLayout();
@@ -119,6 +120,7 @@
             // 
             // OrderPanel
             // 
+            this.OrderPanel.Controls.Add(this.LblCurPrice);
             this.OrderPanel.Controls.Add(this.OrdAmounts);
             this.OrderPanel.Controls.Add(this.StatAmount);
             this.OrderPanel.Controls.Add(this.OrdLiters);
@@ -130,106 +132,115 @@
             this.OrderPanel.Controls.Add(this.Liter);
             this.OrderPanel.Controls.Add(this.TbxAmount);
             this.OrderPanel.Controls.Add(this.TbxLiter);
-            this.OrderPanel.Location = new System.Drawing.Point(33, 51);
+            this.OrderPanel.Location = new System.Drawing.Point(29, 39);
             this.OrderPanel.Name = "OrderPanel";
-            this.OrderPanel.Size = new System.Drawing.Size(243, 214);
+            this.OrderPanel.Size = new System.Drawing.Size(243, 332);
             this.OrderPanel.TabIndex = 2;
             this.OrderPanel.Visible = false;
             // 
-            // TbxLiter
+            // LblCurPrice
             // 
-            this.TbxLiter.Location = new System.Drawing.Point(3, 145);
-            this.TbxLiter.Name = "TbxLiter";
-            this.TbxLiter.Size = new System.Drawing.Size(115, 20);
-            this.TbxLiter.TabIndex = 0;
+            this.LblCurPrice.AutoSize = true;
+            this.LblCurPrice.Location = new System.Drawing.Point(38, 0);
+            this.LblCurPrice.Name = "LblCurPrice";
+            this.LblCurPrice.Size = new System.Drawing.Size(84, 13);
+            this.LblCurPrice.TabIndex = 11;
+            this.LblCurPrice.Text = "Current price:";
             // 
-            // TbxAmount
+            // OrdAmounts
             // 
-            this.TbxAmount.Location = new System.Drawing.Point(124, 145);
-            this.TbxAmount.Name = "TbxAmount";
-            this.TbxAmount.Size = new System.Drawing.Size(116, 20);
-            this.TbxAmount.TabIndex = 1;
+            this.OrdAmounts.AutoSize = true;
+            this.OrdAmounts.Location = new System.Drawing.Point(3, 189);
+            this.OrdAmounts.Name = "OrdAmounts";
+            this.OrdAmounts.Size = new System.Drawing.Size(86, 13);
+            this.OrdAmounts.TabIndex = 10;
+            this.OrdAmounts.Text = "OrderAmounts";
             // 
-            // Liter
+            // StatAmount
             // 
-            this.Liter.AutoSize = true;
-            this.Liter.Location = new System.Drawing.Point(30, 129);
-            this.Liter.Name = "Liter";
-            this.Liter.Size = new System.Drawing.Size(36, 13);
-            this.Liter.TabIndex = 2;
-            this.Liter.Text = "Liter:";
+            this.StatAmount.AutoSize = true;
+            this.StatAmount.Location = new System.Drawing.Point(84, 165);
+            this.StatAmount.Name = "StatAmount";
+            this.StatAmount.Size = new System.Drawing.Size(55, 13);
+            this.StatAmount.TabIndex = 9;
+            this.StatAmount.Text = "Amounts";
             // 
-            // Amount
+            // OrdLiters
             // 
-            this.Amount.AutoSize = true;
-            this.Amount.Location = new System.Drawing.Point(146, 129);
-            this.Amount.Name = "Amount";
-            this.Amount.Size = new System.Drawing.Size(53, 13);
-            this.Amount.TabIndex = 3;
-            this.Amount.Text = "Amount:";
+            this.OrdLiters.AutoSize = true;
+            this.OrdLiters.Location = new System.Drawing.Point(3, 139);
+            this.OrdLiters.Name = "OrdLiters";
+            this.OrdLiters.Size = new System.Drawing.Size(69, 13);
+            this.OrdLiters.TabIndex = 8;
+            this.OrdLiters.Text = "OrderLiters";
             // 
-            // BtnStart
+            // StatLiters
             // 
-            this.BtnStart.Location = new System.Drawing.Point(3, 182);
-            this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(75, 23);
-            this.BtnStart.TabIndex = 4;
-            this.BtnStart.Text = "Start";
-            this.BtnStart.UseVisualStyleBackColor = true;
-            // 
-            // BtnStop
-            // 
-            this.BtnStop.Location = new System.Drawing.Point(84, 182);
-            this.BtnStop.Name = "BtnStop";
-            this.BtnStop.Size = new System.Drawing.Size(75, 23);
-            this.BtnStop.TabIndex = 5;
-            this.BtnStop.Text = "Stop";
-            this.BtnStop.UseVisualStyleBackColor = true;
+            this.StatLiters.AutoSize = true;
+            this.StatLiters.Location = new System.Drawing.Point(84, 121);
+            this.StatLiters.Name = "StatLiters";
+            this.StatLiters.Size = new System.Drawing.Size(38, 13);
+            this.StatLiters.TabIndex = 7;
+            this.StatLiters.Text = "Liters";
             // 
             // BtnReset
             // 
-            this.BtnReset.Location = new System.Drawing.Point(165, 182);
+            this.BtnReset.Location = new System.Drawing.Point(168, 269);
             this.BtnReset.Name = "BtnReset";
             this.BtnReset.Size = new System.Drawing.Size(75, 23);
             this.BtnReset.TabIndex = 6;
             this.BtnReset.Text = "Reset";
             this.BtnReset.UseVisualStyleBackColor = true;
             // 
-            // StatLiters
+            // BtnStop
             // 
-            this.StatLiters.AutoSize = true;
-            this.StatLiters.Location = new System.Drawing.Point(81, 12);
-            this.StatLiters.Name = "StatLiters";
-            this.StatLiters.Size = new System.Drawing.Size(38, 13);
-            this.StatLiters.TabIndex = 7;
-            this.StatLiters.Text = "Liters";
+            this.BtnStop.Location = new System.Drawing.Point(87, 269);
+            this.BtnStop.Name = "BtnStop";
+            this.BtnStop.Size = new System.Drawing.Size(75, 23);
+            this.BtnStop.TabIndex = 5;
+            this.BtnStop.Text = "Stop";
+            this.BtnStop.UseVisualStyleBackColor = true;
             // 
-            // OrdLiters
+            // BtnStart
             // 
-            this.OrdLiters.AutoSize = true;
-            this.OrdLiters.Location = new System.Drawing.Point(3, 37);
-            this.OrdLiters.Name = "OrdLiters";
-            this.OrdLiters.Size = new System.Drawing.Size(69, 13);
-            this.OrdLiters.TabIndex = 8;
-            this.OrdLiters.Text = "OrderLiters";
+            this.BtnStart.Location = new System.Drawing.Point(6, 269);
+            this.BtnStart.Name = "BtnStart";
+            this.BtnStart.Size = new System.Drawing.Size(75, 23);
+            this.BtnStart.TabIndex = 4;
+            this.BtnStart.Text = "Start";
+            this.BtnStart.UseVisualStyleBackColor = true;
             // 
-            // StatAmount
+            // Amount
             // 
-            this.StatAmount.AutoSize = true;
-            this.StatAmount.Location = new System.Drawing.Point(81, 61);
-            this.StatAmount.Name = "StatAmount";
-            this.StatAmount.Size = new System.Drawing.Size(55, 13);
-            this.StatAmount.TabIndex = 9;
-            this.StatAmount.Text = "Amounts";
+            this.Amount.AutoSize = true;
+            this.Amount.Location = new System.Drawing.Point(153, 216);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(53, 13);
+            this.Amount.TabIndex = 3;
+            this.Amount.Text = "Amount:";
             // 
-            // OrdAmounts
+            // Liter
             // 
-            this.OrdAmounts.AutoSize = true;
-            this.OrdAmounts.Location = new System.Drawing.Point(3, 94);
-            this.OrdAmounts.Name = "OrdAmounts";
-            this.OrdAmounts.Size = new System.Drawing.Size(86, 13);
-            this.OrdAmounts.TabIndex = 10;
-            this.OrdAmounts.Text = "OrderAmounts";
+            this.Liter.AutoSize = true;
+            this.Liter.Location = new System.Drawing.Point(36, 216);
+            this.Liter.Name = "Liter";
+            this.Liter.Size = new System.Drawing.Size(36, 13);
+            this.Liter.TabIndex = 2;
+            this.Liter.Text = "Liter:";
+            // 
+            // TbxAmount
+            // 
+            this.TbxAmount.Location = new System.Drawing.Point(127, 232);
+            this.TbxAmount.Name = "TbxAmount";
+            this.TbxAmount.Size = new System.Drawing.Size(116, 20);
+            this.TbxAmount.TabIndex = 1;
+            // 
+            // TbxLiter
+            // 
+            this.TbxLiter.Location = new System.Drawing.Point(6, 232);
+            this.TbxLiter.Name = "TbxLiter";
+            this.TbxLiter.Size = new System.Drawing.Size(115, 20);
+            this.TbxLiter.TabIndex = 0;
             // 
             // Form1
             // 
@@ -277,5 +288,6 @@
         private System.Windows.Forms.Label StatAmount;
         private System.Windows.Forms.Label OrdLiters;
         private System.Windows.Forms.Label StatLiters;
+        private System.Windows.Forms.Label LblCurPrice;
     }
 }
