@@ -16,8 +16,21 @@
             this.PriceSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.OrderPanel = new System.Windows.Forms.Panel();
+            this.TbxLiter = new System.Windows.Forms.TextBox();
+            this.TbxAmount = new System.Windows.Forms.TextBox();
+            this.Liter = new System.Windows.Forms.Label();
+            this.Amount = new System.Windows.Forms.Label();
+            this.BtnStart = new System.Windows.Forms.Button();
+            this.BtnStop = new System.Windows.Forms.Button();
+            this.BtnReset = new System.Windows.Forms.Button();
+            this.StatLiters = new System.Windows.Forms.Label();
+            this.OrdLiters = new System.Windows.Forms.Label();
+            this.StatAmount = new System.Windows.Forms.Label();
+            this.OrdAmounts = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.OrderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -28,7 +41,7 @@
             this.SettingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(933, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(311, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,7 +106,7 @@
             this._statusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(933, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(311, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -104,11 +117,126 @@
             this._statusLabel.Size = new System.Drawing.Size(154, 17);
             this._statusLabel.Text = "Ожидание подключения";
             // 
+            // OrderPanel
+            // 
+            this.OrderPanel.Controls.Add(this.OrdAmounts);
+            this.OrderPanel.Controls.Add(this.StatAmount);
+            this.OrderPanel.Controls.Add(this.OrdLiters);
+            this.OrderPanel.Controls.Add(this.StatLiters);
+            this.OrderPanel.Controls.Add(this.BtnReset);
+            this.OrderPanel.Controls.Add(this.BtnStop);
+            this.OrderPanel.Controls.Add(this.BtnStart);
+            this.OrderPanel.Controls.Add(this.Amount);
+            this.OrderPanel.Controls.Add(this.Liter);
+            this.OrderPanel.Controls.Add(this.TbxAmount);
+            this.OrderPanel.Controls.Add(this.TbxLiter);
+            this.OrderPanel.Location = new System.Drawing.Point(33, 51);
+            this.OrderPanel.Name = "OrderPanel";
+            this.OrderPanel.Size = new System.Drawing.Size(243, 214);
+            this.OrderPanel.TabIndex = 2;
+            this.OrderPanel.Visible = false;
+            // 
+            // TbxLiter
+            // 
+            this.TbxLiter.Location = new System.Drawing.Point(3, 145);
+            this.TbxLiter.Name = "TbxLiter";
+            this.TbxLiter.Size = new System.Drawing.Size(115, 20);
+            this.TbxLiter.TabIndex = 0;
+            // 
+            // TbxAmount
+            // 
+            this.TbxAmount.Location = new System.Drawing.Point(124, 145);
+            this.TbxAmount.Name = "TbxAmount";
+            this.TbxAmount.Size = new System.Drawing.Size(116, 20);
+            this.TbxAmount.TabIndex = 1;
+            // 
+            // Liter
+            // 
+            this.Liter.AutoSize = true;
+            this.Liter.Location = new System.Drawing.Point(30, 129);
+            this.Liter.Name = "Liter";
+            this.Liter.Size = new System.Drawing.Size(36, 13);
+            this.Liter.TabIndex = 2;
+            this.Liter.Text = "Liter:";
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSize = true;
+            this.Amount.Location = new System.Drawing.Point(146, 129);
+            this.Amount.Name = "Amount";
+            this.Amount.Size = new System.Drawing.Size(53, 13);
+            this.Amount.TabIndex = 3;
+            this.Amount.Text = "Amount:";
+            // 
+            // BtnStart
+            // 
+            this.BtnStart.Location = new System.Drawing.Point(3, 182);
+            this.BtnStart.Name = "BtnStart";
+            this.BtnStart.Size = new System.Drawing.Size(75, 23);
+            this.BtnStart.TabIndex = 4;
+            this.BtnStart.Text = "Start";
+            this.BtnStart.UseVisualStyleBackColor = true;
+            // 
+            // BtnStop
+            // 
+            this.BtnStop.Location = new System.Drawing.Point(84, 182);
+            this.BtnStop.Name = "BtnStop";
+            this.BtnStop.Size = new System.Drawing.Size(75, 23);
+            this.BtnStop.TabIndex = 5;
+            this.BtnStop.Text = "Stop";
+            this.BtnStop.UseVisualStyleBackColor = true;
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.Location = new System.Drawing.Point(165, 182);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(75, 23);
+            this.BtnReset.TabIndex = 6;
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.UseVisualStyleBackColor = true;
+            // 
+            // StatLiters
+            // 
+            this.StatLiters.AutoSize = true;
+            this.StatLiters.Location = new System.Drawing.Point(81, 12);
+            this.StatLiters.Name = "StatLiters";
+            this.StatLiters.Size = new System.Drawing.Size(38, 13);
+            this.StatLiters.TabIndex = 7;
+            this.StatLiters.Text = "Liters";
+            // 
+            // OrdLiters
+            // 
+            this.OrdLiters.AutoSize = true;
+            this.OrdLiters.Location = new System.Drawing.Point(3, 37);
+            this.OrdLiters.Name = "OrdLiters";
+            this.OrdLiters.Size = new System.Drawing.Size(69, 13);
+            this.OrdLiters.TabIndex = 8;
+            this.OrdLiters.Text = "OrderLiters";
+            // 
+            // StatAmount
+            // 
+            this.StatAmount.AutoSize = true;
+            this.StatAmount.Location = new System.Drawing.Point(81, 61);
+            this.StatAmount.Name = "StatAmount";
+            this.StatAmount.Size = new System.Drawing.Size(55, 13);
+            this.StatAmount.TabIndex = 9;
+            this.StatAmount.Text = "Amounts";
+            // 
+            // OrdAmounts
+            // 
+            this.OrdAmounts.AutoSize = true;
+            this.OrdAmounts.Location = new System.Drawing.Point(3, 94);
+            this.OrdAmounts.Name = "OrdAmounts";
+            this.OrdAmounts.Size = new System.Drawing.Size(86, 13);
+            this.OrdAmounts.TabIndex = 10;
+            this.OrdAmounts.Text = "OrderAmounts";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 450);
+            this.ClientSize = new System.Drawing.Size(311, 450);
+            this.Controls.Add(this.OrderPanel);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -119,6 +247,8 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.OrderPanel.ResumeLayout(false);
+            this.OrderPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +265,17 @@
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel _statusLabel;
+        private System.Windows.Forms.Panel OrderPanel;
+        private System.Windows.Forms.TextBox TbxAmount;
+        private System.Windows.Forms.TextBox TbxLiter;
+        private System.Windows.Forms.Button BtnReset;
+        private System.Windows.Forms.Button BtnStop;
+        private System.Windows.Forms.Button BtnStart;
+        private System.Windows.Forms.Label Amount;
+        private System.Windows.Forms.Label Liter;
+        private System.Windows.Forms.Label OrdAmounts;
+        private System.Windows.Forms.Label StatAmount;
+        private System.Windows.Forms.Label OrdLiters;
+        private System.Windows.Forms.Label StatLiters;
     }
 }

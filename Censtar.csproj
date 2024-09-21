@@ -53,6 +53,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IniFileHelper.cs" />
+    <Compile Include="OrderManager.cs" />
     <Compile Include="PortSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
